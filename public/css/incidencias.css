@@ -1,0 +1,389 @@
+/* Contenedor de la tabla */
+.dataTables_wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem; /* Margen lateral para separar la tabla */
+}
+
+/* Estilo general de la tabla */
+.table {
+    width: 100% !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra pronunciada */
+    font-family: 'Source Sans Pro', sans-serif;
+    table-layout: auto;
+}
+
+/* Cabecera de la tabla */
+.table thead th {
+    padding: 1rem;
+    border-bottom: 2px solid #e9ecef;
+    background-color: #1e293b; /* slate-800 */
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Filas del cuerpo */
+.table tbody tr {
+    transition: filter 0.2s ease;
+}
+
+/* Colores según estado */
+.table tbody tr.row-activo {
+    background-color: #e6ffed !important; /* Verde claro para Activo */
+}
+
+.table tbody tr.row-inactivo {
+    background-color: #e9ecef !important; /* Gris claro para Inactivo */
+}
+
+/* Efecto hover */
+.table tbody tr:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+/* Celdas del cuerpo */
+.table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    color: #1e293b; /* slate-800 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+/* Última fila sin borde inferior */
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Botón de expansión en modo responsive */
+.table tbody td.dtr-control::before {
+    background-color: #1e293b; /* slate-800 */
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    text-align: center;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Datos expandidos en modo responsive */
+.dataTables_wrapper .child ul.dtr-details {
+    font-size: 0.875rem;
+    color: #1e293b;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el filtro de búsqueda (arriba derecha) */
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+    margin-bottom: 1rem;
+}
+
+.dataTables_wrapper .dataTables_filter label {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #475569; /* slate-600 */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #e2e8f0; /* slate-200 */
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+    transition: border-color 0.3s ease;
+    max-width: 200px;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #94a3b8; /* slate-400 */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.25);
+}
+
+/* Estilo para la información (abajo izquierda) */
+.dataTables_wrapper .dataTables_info {
+    float: left;
+    font-size: 0.875rem;
+    color: #475569; /* slate-600 */
+    font-weight: 500;
+    padding-top: 1rem;
+}
+
+/* Estilo para la paginación (abajo derecha) */
+.dataTables_wrapper .dataTables_paginate {
+    float: right;
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0; /* slate-200 */
+    border-radius: 4px;
+    margin: 0 3px;
+    padding: 0.5rem 0.75rem;
+    color: #1e293b; /* slate-800 */
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #1e293b; /* slate-800 */
+    color: #ffffff;
+    border-color: #1e293b;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #0f172a; /* slate-900 */
+    color: #ffffff;
+    border-color: #0f172a;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    color: #94a3b8; /* slate-400 */
+    cursor: not-allowed;
+}
+
+/* Estilo para el modal */
+.modal-header {
+    background-color: #1e293b; /* slate-800 */
+    color: #ffffff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.modal-close-btn:hover {
+    color: #e2e8f0; /* slate-200 */
+}
+
+.modal-content {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    max-width: 24rem;
+    margin: 0 auto;
+}
+
+/* Estilo para el backdrop del modal */
+.modal-backdrop {
+    z-index: 999 !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease;
+}
+
+/* Estilo para formularios */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #475569; /* slate-600 */
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #e2e8f0; /* slate-200 */
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: #1e293b; /* slate-800 */
+    background-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #94a3b8; /* slate-400 */
+    box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.25);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #94a3b8; /* slate-400 */
+}
+
+/* Estilo para select */
+.form-control-select {
+    border-radius: 4px;
+    border: 1px solid #e2e8f0; /* slate-200 */
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: #1e293b; /* slate-800 */
+    background-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.form-control-select:focus {
+    border-color: #94a3b8; /* slate-400 */
+    box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.25);
+    outline: none;
+}
+
+/* Estilo para botones */
+.btn-primary {
+    background-color: #1e293b; /* slate-800 */
+    border-color: transparent;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: #0f172a; /* slate-900 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #0f172a; /* slate-900 */
+    box-shadow: none;
+}
+
+.btn-primary:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: transparent;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger:focus,
+.btn-danger:active {
+    background-color: #c82333;
+    box-shadow: none;
+}
+
+.btn-danger:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: transparent;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: #5a6268;
+    box-shadow: none;
+}
+
+.btn-secondary:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Responsive: Ajustar estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+    .dataTables_wrapper {
+        padding: 0.25rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        max-width: 150px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 120px;
+    }
+
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        float: none !important; /* Evitar flotación en pantallas pequeñas */
+        text-align: center; /* Centrar en móviles */
+        margin-bottom: 0.5rem;
+    }
+
+    .modal-content {
+        max-width: 90%;
+    }
+}

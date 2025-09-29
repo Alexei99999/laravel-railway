@@ -1,0 +1,476 @@
+/* General table styling */
+.table {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    table-layout: auto;
+}
+
+.table thead th {
+    background-color: #6c757d;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f3f5;
+    cursor: pointer;
+}
+
+.table tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+    word-break: break-word;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+/* Row status styling */
+.row-activo {
+    background-color: #e6ffed !important;
+}
+
+.row-inactivo {
+    background-color: #ffe6e6 !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    box-shadow: none;
+}
+
+.btn-primary:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #6c757d;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 15px 20px;
+}
+
+.modal-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.modal-body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Form styling for column mapping and upload */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    font-size: 14px;
+    padding: 12px 14px;
+    height: 48px;
+    line-height: 1.5;
+    transition: border-color 0.3s ease;
+    background-color: transparent;
+    color: #1e293b;
+    width: 100%;
+}
+
+.form-control.textarea {
+    height: 120px;
+    resize: vertical;
+    padding: 12px 14px;
+}
+
+.form-control:focus {
+    border-color: #6c757d;
+    box-shadow: 0 0 5px rgba(108, 117, 125, 0.3);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #94a3b8;
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #dc3545;
+}
+
+/* Select styling */
+.form-control-select {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    font-size: 14px;
+    padding: 12px 14px;
+    height: 48px;
+    line-height: 1.5;
+    transition: border-color 0.3s ease;
+    background-color: transparent;
+    color: #1e293b;
+    width: 100%;
+}
+
+.form-control-select:focus {
+    border-color: #6c757d;
+    box-shadow: 0 0 5px rgba(108, 117, 125, 0.3);
+    outline: none;
+}
+
+/* Upload modal specific styling */
+#uploadModal .modal-body .form-control[type="file"] {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+
+#uploadModal .modal-body .form-group {
+    margin-bottom: 1rem;
+}
+
+#uploadModal .modal-body .custom-file-label {
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    color: #1e293b;
+}
+
+#uploadModal .modal-body .custom-file-label::after {
+    content: "Elegir archivo";
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+#uploadModal .modal-body .custom-file-label::after:hover {
+    background-color: #5a6268;
+}
+
+/* DataTables wrapper */
+.dataTables_wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem;
+}
+
+/* Hide "Mostrar Registros" dropdown */
+.dataTables_length {
+    display: none !important;
+}
+
+/* DataTables filter */
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+    margin-bottom: 1rem;
+}
+
+.dataTables_wrapper .dataTables_filter label {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #475569;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-left: 0.5rem;
+    transition: border-color 0.3s ease;
+    max-width: 200px;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #6c757d;
+    box-shadow: 0 0 5px rgba(108, 117, 125, 0.3);
+}
+
+/* DataTables info and pagination */
+.dataTables_info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #6c757d;
+    padding: 10px 15px;
+}
+
+.dataTables_paginate {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    padding: 10px 15px;
+}
+
+.dataTables_paginate .paginate_button {
+    color: #6c757d !important;
+    padding: 6px 12px;
+    margin: 0 3px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dataTables_paginate .paginate_button.current,
+.dataTables_paginate .paginate_button:hover {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.dataTables_paginate .paginate_button.disabled {
+    color: #94a3b8 !important;
+    cursor: not-allowed;
+}
+
+/* Responsive DataTables */
+.table tbody td.dtr-control::before {
+    background-color: #6c757d;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    text-align: center;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.dataTables_wrapper .child ul.dtr-details {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #1e293b;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Card body for table */
+.card-body {
+    overflow-x: auto;
+    padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .modal-dialog.modal-xl {
+        max-width: 90%;
+    }
+
+    #columnMappingModal .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    #columnMappingModal .form-label {
+        font-size: 0.85rem;
+    }
+
+    #columnMappingModal .form-control-select {
+        font-size: 0.85rem;
+        padding: 8px;
+        height: 40px;
+    }
+
+    #columnMappingModal .form-control {
+        font-size: 0.85rem;
+        padding: 8px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    #columnMappingModal .col-md-3 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+
+    #columnMappingModal .form-label {
+        font-size: 0.8rem;
+    }
+
+    #columnMappingModal .form-control-select,
+    #columnMappingModal .form-control {
+        font-size: 0.8rem;
+        padding: 6px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .table {
+        font-size: 12px;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 8px 10px;
+    }
+
+    .btn-primary {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .modal-body {
+        font-size: 13px;
+        padding: 15px;
+        max-height: 50vh;
+    }
+
+    .form-control,
+    .form-control-select {
+        font-size: 13px;
+        padding: 8px;
+        height: 36px;
+    }
+
+    .form-control.textarea {
+        height: 100px;
+    }
+
+    #columnMappingModal .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    #columnMappingModal .form-label {
+        font-size: 0.75rem;
+    }
+
+    #columnMappingModal .form-control-select,
+    #columnMappingModal .form-control {
+        font-size: 0.75rem;
+        padding: 5px;
+        height: 32px;
+    }
+
+    .dataTables_info,
+    .dataTables_paginate {
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .table thead th,
+    .table tbody td {
+        padding: 6px 8px;
+    }
+
+    .btn-primary {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .modal-header {
+        padding: 12px 15px;
+    }
+
+    .modal-title {
+        font-size: 1.1rem;
+    }
+
+    .modal-content {
+        max-width: 90%;
+    }
+
+    .form-control,
+    .form-control-select {
+        font-size: 12px;
+        padding: 6px;
+        height: 30px;
+    }
+
+    .form-control.textarea {
+        height: 80px;
+    }
+
+    #columnMappingModal .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        float: none !important;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+}
