@@ -74,7 +74,6 @@ class SeederTablaPermisos extends Seeder
             'crear-incidencias',
             'editar-incidencias',
             'borrar-incidencias',
-
         ];
 
         foreach($permisos as $permiso){

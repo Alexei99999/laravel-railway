@@ -303,7 +303,7 @@ return [
                     'icon_color' => 'red',
                     'url'        => '/usuarios',
                     'icon' => 'fas fa-fw fa-users',
-                    'can'  => ['ver-usuario'],
+                    'can'  => ['ver-usuarios'],
                 ],
                 [
                     'text'       => 'Roles',
