@@ -363,21 +363,21 @@ return [
             'can'  => ['ver-ferias', 'ver-ferias-all', 'ver-incidenciasferias'],
             'submenu' => [
                 [
-                    'text'       => 'Ferias',
+                    'text'       => 'Ferias Activas',
                     /* 'icon_color' => 'red', */
                     'url'        => '/ferias',
                     /* 'icon' => 'fas fa-fw fa-users', */
                     'can'  => ['ver-ferias'],
                 ],
                 [
-                    'text'       => 'Ferias',
+                    'text'       => 'Total de Agentes de Ferias',
                     /* 'icon_color' => 'yellow', */
                     'url'        => 'ferias/index-all',
                     /* 'icon' => 'fas fa-fw fa-lock', */
                     'can'  => ['ver-ferias-all'],
                 ],
                 [
-                    'text'       => 'Incidencias',
+                    'text'       => 'Incidencias de Ferias',
                     /* 'icon_color' => 'yellow', */
                     'url'        => 'incidencias_ferias',
                     /* 'icon' => 'fas fa-fw fa-lock', */
@@ -393,21 +393,21 @@ return [
             'can'  => ['ver-fiscalizacion', 'ver-fiscalizacion-all', 'ver-incidenciasfiscalizacion'],
             'submenu' => [
                 [
-                    'text'       => 'Fiscalización',
+                    'text'       => 'Fiscalización Activas',
                     /* 'icon_color' => 'red', */
                     'route'        => 'fiscalizacions.index',
                     /* 'icon' => 'fas fa-fw fa-users', */
                     'can'  => ['ver-fiscalizacion'],
                 ],
                 [
-                    'text'       => 'Fiscalización',
+                    'text'       => 'Total de Fiscales',
                     /* 'icon_color' => 'yellow', */
                     'route'        => 'fiscalizacions-all.index',
                     /* 'icon' => 'fas fa-fw fa-lock', */
                     'can'  => ['ver-fiscalizacion-all'],
                 ],
                 [
-                    'text'       => 'Incidencias',
+                    'text'       => 'Incidencias de Fiscales',
                     /* 'icon_color' => 'yellow', */
                     'url'        => 'incidencias_fiscalizaciones',
                     /* 'icon' => 'fas fa-fw fa-lock', */
