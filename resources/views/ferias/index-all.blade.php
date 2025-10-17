@@ -15,8 +15,42 @@
             <button type="button" class="btn btn-success" id="newUploadCsvButton" data-toggle="modal" data-target="#uploadModal">
                 <i class="fas fa-upload"></i> Importar CSV
             </button>
+                   <button type="button" class="btn btn-info ml-2" data-toggle="modal" data-target="#exportModal">
+    <i class="fas fa-file-export"></i> Exportar
+</button>
+
         </div>
     </div>
+    <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="{{ route('ferias.total-agentes.export') }}" method="POST">
+        @csrf
+        <div class="modal-header">
+          <h5 class="modal-title" id="exportModalLabel">Exportar Ferias</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Elija el formato para exportar:</p>
+          <div class="form-group">
+            <select name="format" class="form-control" required>
+              <option value="">Seleccione formato</option>
+              <option value="csv">CSV</option>
+              <option value="excel">Excel</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-info">Exportar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 @stop
 
 @section('content')

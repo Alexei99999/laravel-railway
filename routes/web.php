@@ -10,6 +10,8 @@ use App\Http\Controllers\AuditoriaController;
 use App\Http\Controllers\IncidenciasFeriaController;
 use Illuminate\Support\Facades\Auth;
 
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -22,6 +24,19 @@ Route::get('/calendar-events', [CalendarController::class, 'index']);
 Route::post('/calendar-events', [CalendarController::class, 'store']);
 
 Route::get('/audits', [AuditoriaController::class, 'index'])->name('auditorias');
+
+/*esto es de feria*/
+Route::post('/ferias/export', [FeriaController::class, 'export'])->name('ferias.export');
+Route::post('/ferias/total-agentes/export', [FeriaController::class, 'exportTodo'])->name('ferias.total-agentes.export');
+Route::get('/incidencias_ferias/export-todo', [IncidenciasFeriaController::class, 'exportTodo'])->name('incidencias_ferias.exportTodo');
+/*esto es de feria*/
+
+
+/*esto es de fiscalizacion*/
+Route::post('/fiscalizacions/export-filtrado', [FiscalizacionController::class, 'exportFiltrado'])->name('fiscalizacions.exportFiltrado');
+Route::post('/fiscalizacions/export-todo', [FiscalizacionController::class, 'exportTodo'])->name('fiscalizacions.exportTodo');
+/*esto es de fiscalizacion*/
+
 
 Route::get('usuarios/datatables', [UsuarioController::class, 'datatables'])->name('usuarios.datatables');
 
@@ -102,3 +117,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('ferias', FeriaController::class);
 
 });
+
+/*esto es de fiscalizacionincidencia*/
+Route::POST('/incidencias-fiscalizacion/export-todo', [IncidenciasFiscalizacionController::class, 'exportTodo'])->name('incidencias_fiscalizacion.exportTodo');
+/*esto es de fiscalizacionincidencia*/

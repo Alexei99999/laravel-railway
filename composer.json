@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.4",
         "laraveldaily/laravel-charts": "^0.2.3",
-        "maatwebsite/excel": "~3.1",
+        "maatwebsite/excel": "^3.1",
         "mkocansey/bladewind": "^2.6",
         "mpdf/mpdf": "^6.1",
         "nesbot/carbon": "^2.72",

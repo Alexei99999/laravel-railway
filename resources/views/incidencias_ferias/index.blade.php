@@ -9,9 +9,99 @@
 @section('content')
     <div class="container-fluid py-4" style="background-color: #f9fafb;">
         <div class="d-flex justify-content-end mb-3">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal" style="background-color: #4a90e2; border-color: #4a90e2; border-radius: 8px; padding: 8px 20px; font-weight: 500; transition: background-color 0.2s;">
+            <!-- Botón para abrir el modal de crear -->
+            <button class="btn btn-primary" data-toggle="modal" data-target="#createModal" style="background-color: #4a90e2; border-color: #4a90e2; border-radius: 8px; padding: 8px 20px; font-weight: 500; transition: background-color 0.2s;">
                 Crear Incidencia
             </button>
+            <!-- Botón para abrir el modal de exportar -->
+            <button type="button" class="btn btn-info ml-2" data-toggle="modal" data-target="#exportModal">
+                <i class="fas fa-file-export"></i> Exportar
+            </button>
+        </div>
+
+        <!-- Modal de crear incidencia -->
+        <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form action="{{ route('incidencias_ferias.store') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                  <h5 class="modal-title" id="createModalLabel">Crear Incidencia</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Aquí van tus campos del formulario -->
+                  <div class="form-group">
+                    <label for="cedula">Cédula</label>
+                    <input type="text" class="form-control" name="cedula" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="trabajador">Trabajador</label>
+                    <input type="text" class="form-control" name="trabajador" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="ubicacion">Ubicación</label>
+                    <input type="text" class="form-control" name="ubicacion" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="contacto">Contacto</label>
+                    <input type="text" class="form-control" name="contacto" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="incidencia">Incidencia</label>
+                    <textarea class="form-control" name="incidencia" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="fecha_incidencia">Fecha Incidencia</label>
+                    <input type="date" class="form-control" name="fecha_incidencia" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="hora_incidencia">Hora Incidencia</label>
+                    <input type="time" class="form-control" name="hora_incidencia" required>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal de exportación -->
+        <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form action="{{ route('incidencias_ferias.exportTodo') }}" method="GET">
+                @csrf
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exportModalLabel">Exportar IncidenciaFeria</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Elija el formato para exportar:</p>
+                  <div class="form-group">
+                    <select name="format" class="form-control" required>
+                      <option value="">Seleccione formato</option>
+                      <option value="csv">CSV</option>
+                      <option value="excel">Excel</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-info">Exportar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
         </div>
         <div class="card shadow-sm" style="border-radius: 12px; background-color: #ffffff;">
             <div class="card-header" style="background: linear-gradient(to right, #e6f0fa, #edf2f7); border-bottom: 1px solid #d1d9e6; border-top-left-radius: 12px; border-top-right-radius: 12px; padding: 15px 20px;">

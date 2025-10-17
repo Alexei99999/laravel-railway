@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Fiscalizacion;
 use App\Models\IncidenciasFiscalizacion;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use Carbon\Carbon;
+
+use App\Exports\IncidenciasFiscalizacionesExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\Request;
 
 class IncidenciasFiscalizacionController extends Controller
 {
@@ -281,5 +284,20 @@ class IncidenciasFiscalizacionController extends Controller
                 'details' => $e->getMessage(),
             ], 500);
         }
+    }
+
+public function exportTodo(Request $request)
+    {
+        $format = $request->input('format');
+        $timestamp = date('Ymd_His');
+        $fileName = 'incidencias_fiscalizaciones_' . $timestamp . '.' . ($format === 'csv' ? 'csv' : 'xlsx');
+
+        $export = new IncidenciasFiscalizacionesExport();
+
+        if ($format === 'csv') {
+            return Excel::download($export, $fileName, \Maatwebsite\Excel\Excel::CSV);
+        }
+
+        return Excel::download($export, $fileName);
     }
 }

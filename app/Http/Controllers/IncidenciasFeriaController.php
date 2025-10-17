@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables; // Importar la clase Datatables
 use Carbon\Carbon;
 
+use App\Exports\IncidenciasFeriasExport;
+use App\Exports\TotalIncidenciasFeriasExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class IncidenciasFeriaController extends Controller
 {
     /**
@@ -333,5 +337,12 @@ class IncidenciasFeriaController extends Controller
                 'details' => $e->getMessage(),
             ], 500);
         }
+    }
+
+
+ public function exportTodo()
+    {
+        $fileName = 'incidencias_ferias_totales_' . date('Ymd') . '.xlsx';
+        return Excel::download(new TotalIncidenciasFeriasExport, $fileName);
     }
 }

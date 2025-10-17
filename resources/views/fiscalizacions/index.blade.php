@@ -12,10 +12,44 @@
             <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#createModal">
                 <i class="fas fa-plus"></i> REGISTRO
             </button>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#uploadModal">
+            <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#uploadModal">
                 <i class="fas fa-upload"></i> Importar CSV
             </button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exportModal">
+                <i class="fas fa-file-export"></i> Exportar
+            </button>
         </div>
+    </div>
+
+    {{-- Modal de exportación fuera del contenedor de botones --}}
+    <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form action="{{ route('fiscalizacions.exportFiltrado') }}" method="POST">
+            @csrf
+            <div class="modal-header">
+              <h5 class="modal-title" id="exportModalLabel">Exportar Fiscalización</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Elija el formato para exportar:</p>
+              <div class="form-group">
+                <select name="format" class="form-control" required>
+                  <option value="">Seleccione formato</option>
+                  <option value="csv">CSV</option>
+                  <option value="excel">Excel</option>
+                </select>
+              </div>
+            </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-info">Exportar</button>
+        </div>
+          </form>
+        </div>
+      </div>
     </div>
 @stop
 

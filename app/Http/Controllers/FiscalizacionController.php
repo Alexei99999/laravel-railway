@@ -12,6 +12,10 @@ use Carbon\Carbon;
 use OwenIt\Auditing\Models\Audit;
 use Yajra\DataTables\DataTables;
 
+use App\Exports\FiscalizacionesExport;
+use App\Exports\TotalFiscalizacionesExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class FiscalizacionController extends Controller
 {
     public function __construct()
@@ -556,4 +560,35 @@ class FiscalizacionController extends Controller
 
         return response()->json(['already_loaded' => $alreadyLoaded]);
     }
+
+public function exportFiltrado(Request $request)
+{
+    $format = $request->input('format');
+    $timestamp = date('Ymd_His');
+    $fileName = 'fiscalizaciones_' . $timestamp . '.' . ($format === 'csv' ? 'csv' : 'xlsx');
+
+    $export = new FiscalizacionesExport;
+
+    if ($format === 'csv') {
+        return Excel::download($export, $fileName, \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    return Excel::download($export, $fileName);
+}
+
+public function exportTodo(Request $request)
+{
+    $format = $request->input('format');
+    $timestamp = date('Ymd_His');
+    $fileName = 'fiscalizaciones_todas_' . $timestamp . '.' . ($format === 'csv' ? 'csv' : 'xlsx');
+
+    $export = new TotalFiscalizacionesExport;
+
+    if ($format === 'csv') {
+        return Excel::download($export, $fileName, \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    return Excel::download($export, $fileName);
+}
+
 }

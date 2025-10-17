@@ -6,12 +6,53 @@
     <h1 class="m-0 text-dark" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600; letter-spacing: 0.5px;">Incidencias Fiscalizaciones</h1>
 @stop
 
+@section('content_header')
+    <h1 class="m-0 text-dark" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600; letter-spacing: 0.5px;">Incidencias</h1>
+@stop
+
+
 @section('content')
     <div class="container-fluid py-4" style="background-color: #f9fafb;">
         <div class="d-flex justify-content-end mb-3">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal" style="background-color: #4a90e2; border-color: #4a90e2; border-radius: 8px; padding: 8px 20px; font-weight: 500; transition: background-color 0.2s;">
                 Crear Incidencia
             </button>
+             <button type="button" class="btn btn-info ml-2" data-toggle="modal" data-target="#exportModal">
+    <i class="fas fa-file-export"></i> Exportar
+</button>
+
+
+        </div>
+    </div>
+    <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="{{ route('incidencias_fiscalizacion.exportTodo') }}" method="POST">
+        @csrf
+        <div class="modal-header">
+          <h5 class="modal-title" id="exportModalLabel">Exportar IncidenciaFeria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Elija el formato para exportar:</p>
+          <div class="form-group">
+            <select name="format" class="form-control" required>
+              <option value="">Seleccione formato</option>
+              <option value="csv">CSV</option>
+              <option value="excel">Excel</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-info">Exportar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
         </div>
         <div class="card shadow-sm" style="border-radius: 12px; background-color: #ffffff;">
             <div class="card-header" style="background: linear-gradient(to right, #e6f0fa, #edf2f7); border-bottom: 1px solid #d1d9e6; border-top-left-radius: 12px; border-top-right-radius: 12px; padding: 15px 20px;">
