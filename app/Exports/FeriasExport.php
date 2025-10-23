@@ -31,12 +31,14 @@ class FeriasExport implements FromCollection, WithHeadings, WithCustomCsvSetting
             'cod_mun',
             'cod_parroquia',
             'cod_centro',
+            'e_registro',
             'correo'
         )
         ->where(function ($query) {
             $query->where('disponibilidad', '!=', 'No trabajará')
                 ->orWhereNull('disponibilidad');
         })
+        ->where('e_registro', 'Activo')  // Solo registros activos
         ->get();
     }
 
@@ -62,6 +64,7 @@ class FeriasExport implements FromCollection, WithHeadings, WithCustomCsvSetting
             'Código Municipio',
             'Código Parroquia',
             'Código Centro',
+            'e_registro',
             'Correo'
         ];
     }

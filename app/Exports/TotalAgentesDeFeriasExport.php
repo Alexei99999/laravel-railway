@@ -31,6 +31,7 @@ class TotalAgentesDeFeriasExport implements FromCollection, WithHeadings, WithCu
             'cod_mun',
             'cod_parroquia',
             'cod_centro',
+            'e_registro',
             'correo'
         )->get();
     }
@@ -57,6 +58,7 @@ class TotalAgentesDeFeriasExport implements FromCollection, WithHeadings, WithCu
             'Código Municipio',
             'Código Parroquia',
             'Código Centro',
+            'e_registro',
             'Correo'
         ];
     }
@@ -64,8 +66,8 @@ class TotalAgentesDeFeriasExport implements FromCollection, WithHeadings, WithCu
     public function getCsvSettings(): array
     {
         return [
-            'delimiter' => ';',      // Mejor para Excel en configuraciones regionales en español
-            'enclosure' => '"',      // Encierra textos para respetar comas o espacios
+            'delimiter' => ';', // Mejor para Excel en configuraciones regionales en español
+            'enclosure' => '"', // Encierra textos para respetar comas o espacios
             'line_ending' => "\r\n", // Compatible con Windows
             'use_bom' => true,       // Previene problemas con caracteres UTF-8
         ];
