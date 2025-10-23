@@ -367,31 +367,30 @@ use App\Exports\TotalAgentesDeFeriasExport;
         }
 
 public function export(Request $request)
-{
-    $format = $request->input('format');
-    $timestamp = date('Ymd_His');
+    {
+        $format = $request->input('format');
+        $timestamp = date('Ymd_His');
 
-    if ($format === 'csv') {
-        return Excel::download(new FeriasExport, "ferias_{$timestamp}.csv", \Maatwebsite\Excel\Excel::CSV);
-    } elseif ($format === 'excel') {
-        return Excel::download(new FeriasExport, "ferias_{$timestamp}.xlsx");
-    } else {
-        return redirect()->back()->with('error', 'Formato no válido');
+        if ($format === 'csv') {
+            return Excel::download(new FeriasExport, "ferias_{$timestamp}.csv", \Maatwebsite\Excel\Excel::CSV);
+        } elseif ($format === 'excel') {
+            return Excel::download(new FeriasExport, "ferias_{$timestamp}.xlsx", \Maatwebsite\Excel\Excel::XLSX);
+        } else {
+            return redirect()->back()->with('error', 'Formato no válido');
+        }
     }
-}
 
-public function exportTodo(Request $request)
-{
-    $format = $request->input('format');
-    $timestamp = date('Ymd_His');
+    public function exportTodo(Request $request)
+    {
+        $format = $request->input('format');
+        $timestamp = date('Ymd_His');
 
-    if ($format === 'csv') {
-        return Excel::download(new TotalAgentesDeFeriasExport, "ferias_completas_{$timestamp}.csv", \Maatwebsite\Excel\Excel::CSV);
-    } elseif ($format === 'excel') {
-        return Excel::download(new TotalAgentesDeFeriasExport, "ferias_completas_{$timestamp}.xlsx");
-    } else {
-        return redirect()->back()->with('error', 'Formato no válido');
+        if ($format === 'csv') {
+            return Excel::download(new TotalAgentesDeFeriasExport, "ferias_completas_{$timestamp}.csv", \Maatwebsite\Excel\Excel::CSV);
+        } elseif ($format === 'excel') {
+            return Excel::download(new TotalAgentesDeFeriasExport, "ferias_completas_{$timestamp}.xlsx", \Maatwebsite\Excel\Excel::XLSX);
+        } else {
+            return redirect()->back()->with('error', 'Formato no válido');
+        }
     }
-}
-
 }

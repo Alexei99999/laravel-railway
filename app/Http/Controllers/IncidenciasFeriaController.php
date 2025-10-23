@@ -340,9 +340,19 @@ class IncidenciasFeriaController extends Controller
     }
 
 
- public function exportTodo()
-    {
-        $fileName = 'incidencias_ferias_totales_' . date('Ymd') . '.xlsx';
-        return Excel::download(new TotalIncidenciasFeriasExport, $fileName);
+public function exportTodo(Request $request)
+{
+    $format = $request->input('format', 'excel'); // Por defecto excel
+    $timestamp = date('Ymd_His');
+
+    if ($format === 'csv') {
+        $fileName = "incidencias_ferias_totales_{$timestamp}.csv";
+        return Excel::download(new TotalIncidenciasFeriasExport, $fileName, \Maatwebsite\Excel\Excel::CSV);
+    } elseif ($format === 'excel') {
+        $fileName = "incidencias_ferias_totales_{$timestamp}.xlsx";
+        return Excel::download(new TotalIncidenciasFeriasExport, $fileName, \Maatwebsite\Excel\Excel::XLSX);
+    } else {
+        return redirect()->back()->with('error', 'Formato no válido');
     }
+}
 }

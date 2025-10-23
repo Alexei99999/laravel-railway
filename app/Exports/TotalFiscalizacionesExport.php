@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\Fiscalizacion;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
-class TotalFiscalizacionesExport implements FromCollection, WithHeadings
+class TotalFiscalizacionesExport implements FromCollection, WithHeadings, WithCustomCsvSettings
 {
     public function collection()
     {
@@ -54,6 +55,16 @@ class TotalFiscalizacionesExport implements FromCollection, WithHeadings
             'Estado Registro',
             'Creado en',
             'Modificado en',
+        ];
+    }
+
+    public function getCsvSettings(): array
+    {
+        return [
+            'delimiter' => ';',      // Mejor compatibilidad en entornos en español
+            'enclosure' => '"',      // Encierra textos para evitar conflictos
+            'line_ending' => "\r\n", // Para compatibilidad en Windows
+            'use_bom' => true,       // Corrige problemas de caracteres UTF-8 en Excel
         ];
     }
 }

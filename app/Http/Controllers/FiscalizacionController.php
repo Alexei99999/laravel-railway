@@ -565,30 +565,29 @@ public function exportFiltrado(Request $request)
 {
     $format = $request->input('format');
     $timestamp = date('Ymd_His');
-    $fileName = 'fiscalizaciones_' . $timestamp . '.' . ($format === 'csv' ? 'csv' : 'xlsx');
+    $extension = $format === 'csv' ? 'csv' : 'xlsx';
+    $fileName = 'fiscalizaciones_' . $timestamp . '.' . $extension;
 
     $export = new FiscalizacionesExport;
 
-    if ($format === 'csv') {
-        return Excel::download($export, $fileName, \Maatwebsite\Excel\Excel::CSV);
-    }
+    $type = $format === 'csv' ? \Maatwebsite\Excel\Excel::CSV : \Maatwebsite\Excel\Excel::XLSX;
 
-    return Excel::download($export, $fileName);
+    return Excel::download($export, $fileName, $type);
 }
 
 public function exportTodo(Request $request)
 {
     $format = $request->input('format');
     $timestamp = date('Ymd_His');
-    $fileName = 'fiscalizaciones_todas_' . $timestamp . '.' . ($format === 'csv' ? 'csv' : 'xlsx');
+    $extension = $format === 'csv' ? 'csv' : 'xlsx';
+    $fileName = 'fiscalizaciones_todas_' . $timestamp . '.' . $extension;
 
     $export = new TotalFiscalizacionesExport;
 
-    if ($format === 'csv') {
-        return Excel::download($export, $fileName, \Maatwebsite\Excel\Excel::CSV);
-    }
+    $type = $format === 'csv' ? \Maatwebsite\Excel\Excel::CSV : \Maatwebsite\Excel\Excel::XLSX;
 
-    return Excel::download($export, $fileName);
+    return Excel::download($export, $fileName, $type);
 }
+
 
 }

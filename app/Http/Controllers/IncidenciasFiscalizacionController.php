@@ -287,17 +287,16 @@ class IncidenciasFiscalizacionController extends Controller
     }
 
 public function exportTodo(Request $request)
-    {
-        $format = $request->input('format');
-        $timestamp = date('Ymd_His');
-        $fileName = 'incidencias_fiscalizaciones_' . $timestamp . '.' . ($format === 'csv' ? 'csv' : 'xlsx');
+{
+    $format = $request->input('format');
+    $timestamp = date('Ymd_His');
+    $extension = $format === 'csv' ? 'csv' : 'xlsx';
+    $fileName = 'incidencias_fiscalizaciones_' . $timestamp . '.' . $extension;
 
-        $export = new IncidenciasFiscalizacionesExport();
+    $export = new IncidenciasFiscalizacionesExport();
 
-        if ($format === 'csv') {
-            return Excel::download($export, $fileName, \Maatwebsite\Excel\Excel::CSV);
-        }
+    $type = $format === 'csv' ? \Maatwebsite\Excel\Excel::CSV : \Maatwebsite\Excel\Excel::XLSX;
 
-        return Excel::download($export, $fileName);
-    }
+    return Excel::download($export, $fileName, $type);
+}
 }

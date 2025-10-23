@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\Fiscalizacion;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
-class FiscalizacionesExport implements FromCollection, WithHeadings
+class FiscalizacionesExport implements FromCollection, WithHeadings, WithCustomCsvSettings
 {
     public function collection()
     {
@@ -56,6 +57,16 @@ class FiscalizacionesExport implements FromCollection, WithHeadings
             'Estado Registro',
             'Creado en',
             'Modificado en',
+        ];
+    }
+
+    public function getCsvSettings(): array
+    {
+        return [
+            'delimiter' => ';',      // Mejor para configuraciones regionales en español
+            'enclosure' => '"',      // Para encerrar texto que contenga separadores
+            'line_ending' => "\r\n", // Compatibilidad Windows
+            'use_bom' => true,       // Para evitar problemas con caracteres UTF-8 en Excel
         ];
     }
 }

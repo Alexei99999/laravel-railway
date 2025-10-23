@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\Feria;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
-class TotalAgentesDeFeriasExport implements FromCollection, WithHeadings
+class TotalAgentesDeFeriasExport implements FromCollection, WithHeadings, WithCustomCsvSettings
 {
     public function collection()
     {
@@ -57,6 +58,16 @@ class TotalAgentesDeFeriasExport implements FromCollection, WithHeadings
             'Código Parroquia',
             'Código Centro',
             'Correo'
+        ];
+    }
+
+    public function getCsvSettings(): array
+    {
+        return [
+            'delimiter' => ';',      // Mejor para Excel en configuraciones regionales en español
+            'enclosure' => '"',      // Encierra textos para respetar comas o espacios
+            'line_ending' => "\r\n", // Compatible con Windows
+            'use_bom' => true,       // Previene problemas con caracteres UTF-8
         ];
     }
 }
