@@ -30,14 +30,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password <span class="text-danger">*</span></label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password" class="form-control" id="password" name="password" required placeholder="Mínimo 9 caracteres">
                                 @error('password')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmar Password <span class="text-danger">*</span></label>
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required placeholder="Repite tu contraseña">
                                 @error('password_confirmation')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror

@@ -31,14 +31,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Mínimo 9 caracteres">
                                 @error('password')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmar Password</label>
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Repite tu contraseña">
                                 @error('password_confirmation')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror

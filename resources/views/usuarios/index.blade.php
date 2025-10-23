@@ -78,12 +78,12 @@
                         </div>
                         <div class="form-group">
                             <label for="create_password">Password <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control" id="create_password" name="password" required>
+                            <input type="password" class="form-control" id="create_password" name="password" required placeholder="Mínimo 9 caracteres">
                             <div class="invalid-feedback"></div>
                         </div>
                         <div class="form-group">
                             <label for="create_confirm_password">Confirmar Password <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control" id="create_confirm_password" name="password_confirmation" required>
+                            <input type="password" class="form-control" id="create_confirm_password" name="password_confirmation" required placeholder="Repite tu contraseña">
                             <div class="invalid-feedback"></div>
                         </div>
                         <div class="form-group">

@@ -400,7 +400,7 @@ return [
                     'can'  => ['ver-fiscalizacion'],
                 ],
                 [
-                    'text'       => 'Total de Fiscales',
+                    'text'       => 'Todas las Fiscalizaciones',
                     /* 'icon_color' => 'yellow', */
                     'route'        => 'fiscalizacions-all.index',
                     /* 'icon' => 'fas fa-fw fa-lock', */
