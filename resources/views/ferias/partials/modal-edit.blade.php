@@ -95,7 +95,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="edit_fecha_hora1">Fecha y Hora 1</label>
-                                <input type="text" class="form-control flatpickr-datetime" id="edit_fecha_hora1" name="fecha_hora1">
+                                <input type="text" class="form-control flatpickr-datetime" id="edit_fecha_hora1" name="fecha_hora1" placeholder="ej:15/10/25 13:05">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="edit_fecha_hora2">Fecha y Hora 2</label>
-                                <input type="text" class="form-control flatpickr-datetime" id="edit_fecha_hora2" name="fecha_hora2">
+                                <input type="text" class="form-control flatpickr-datetime" id="edit_fecha_hora2" name="fecha_hora2" placeholder="ej:15/10/25 13:05">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="edit_fecha_hora3">Fecha y Hora 3</label>
-                                <input type="text" class="form-control flatpickr-datetime" id="edit_fecha_hora3" name="fecha_hora3">
+                                <input type="text" class="form-control flatpickr-datetime" id="edit_fecha_hora3" name="fecha_hora3" placeholder="ej:15/10/25 13:05">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="edit_hora_incidencia">Hora Incidencia</label>
-                                <input type="text" class="form-control flatpickr-datetime" id="edit_hora_incidencia" name="hora_incidencia">
+                                <input type="text" class="form-control flatpickr-datetime" id="edit_hora_incidencia" name="hora_incidencia" placeholder="ej:13:05">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
